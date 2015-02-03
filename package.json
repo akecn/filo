@@ -1,8 +1,8 @@
 {
   "name": "filo",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "virtual file object",
-  "main": "filo.js",
+  "main": "lib/filo.js",
   "author": {
     "name": "wuake",
     "email": "wgk1987@gmail.com"
