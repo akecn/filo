@@ -1,0 +1,44 @@
+{
+  "name": "filo",
+  "version": "0.0.1",
+  "description": "virtual file object",
+  "main": "filo.js",
+  "author": {
+    "name": "wuake",
+    "email": "wgk1987@gmail.com"
+  },
+  "homepage": "https://github.com/akecn/filo",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akecn/filo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akecn/filo/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/akecn/filo/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.11.0",
+    "npm": ">=1.4.3"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "lodash": "^3.0.1",
+    "mime-types": "^2.0.8"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.2",
+    "gulp-mocha": "^2.0.0",
+    "jshint-stylish": "^1.0.0",
+    "mocha": "^2.1.0"
+  },
+  "keywords": []
+}
