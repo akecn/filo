@@ -21,10 +21,6 @@
       "url": "https://github.com/akecn/filo/blob/master/LICENSE"
     }
   ],
-  "engines": {
-    "node": ">= 0.11.0",
-    "npm": ">=1.4.3"
-  },
   "scripts": {
     "test": "gulp test"
   },
