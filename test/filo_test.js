@@ -57,39 +57,39 @@ describe('filo module', function(){
         });
     });
 
-//    describe('#isAvailable()', function() {
-//        it('should return available state', function() {
-//            var filo1 = new Filo('test/resource/c.js');
-//            filo1.isAvailable().should.be.false();
-//
-//            var filo2 = new Filo('test/resource/b.js');
-//            filo2.isAvailable().should.be.true();
-//        });
-//
-//    });
+    describe('#isAvailable()', function() {
+        it('should return available state', function() {
+            var filo1 = new Filo('test/resource/c.js');
+            filo1.isAvailable().should.be.false();
 
-//    describe('available with one file invalid', function() {
-//        it('should return true #isAvailable()', function() {
-//            var filo = new Filo('test/resource/??a.js,c.js');
-//
-//            filo.isAvailable().should.be.true();
-//        });
-//
-//        it('should return content of available file', function() {
-//            var filo = new Filo('test/resource/??b.js,c.js');
-//
-//            filo.output().toString().should.equal('console.log(2);')
-//        });
-//    });
+            var filo2 = new Filo('test/resource/b.js');
+            filo2.isAvailable().should.be.true();
+        });
 
-    describe('#concat()', function() {
-        it('should concat content', function() {
+    });
+
+    describe('#isAvailable()', function() {
+        it('should return true with one file invalid', function() {
+            var filo = new Filo('test/resource/??a.js,c.js');
+
+            filo.isAvailable().should.be.true();
+        });
+
+        it('should return content of available file', function() {
+            var filo = new Filo('test/resource/??b.js,c.js');
+
+            filo.output().toString().should.equal('console.log(2);')
+        });
+    });
+
+    describe('#combine()', function() {
+        it('should combine content', function() {
             var filo = new Filo('test/resource/a.js');
             filo.output().toString().should.equal('console.log(1);');
 
             filo.files.should.be.a('array');
             filo.files.should.have.length(1);
-            filo.concat('test/resource/b.js');
+            filo.combine('test/resource/b.js');
 
             filo.files.should.have.length(2);
 
