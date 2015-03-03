@@ -36,55 +36,62 @@ var Filo = require('../lib/filo.js');
 
 describe('filo module', function(){
     describe('#getFiles()', function(){
-        it('should return array of path', function(){
+        it('should return array of File instance', function(){
             var filo = new Filo("test/resource/??a.js,b.js"),
-                files = filo.getFiles();
+                files = filo.files;
             files.should.be.a('array');
             files.should.have.length(2);
 
-            files[0].should.equal(path.join(__dirname, 'resource/a.js'))
-            files[1].should.equal(path.join(__dirname, 'resource/b.js'))
+            files[0].url.should.equal(path.join(__dirname, 'resource/a.js'))
+            files[1].url.should.equal(path.join(__dirname, 'resource/b.js'))
         });
 
         it('should coincident with different url', function() {
             var filo1 = new Filo("test/resource/??a.js,b.js"),
                 filo2 = new Filo('test/??/resource/a.js,/resource/b.js');
 
-            filo1.should.eql(filo2);
+            var content1 = filo1.output().toString(),
+                content2 = filo2.output().toString();
+            content1.should.equal(content2);
+            content1.should.equal('console.log(1);console.log(2);');
         });
     });
 
-    describe('#isAvailable()', function() {
-        it('should return available state', function() {
-            var filo1 = new Filo('test/resource/c.js');
-            filo1.isAvailable().should.be.false();
+//    describe('#isAvailable()', function() {
+//        it('should return available state', function() {
+//            var filo1 = new Filo('test/resource/c.js');
+//            filo1.isAvailable().should.be.false();
+//
+//            var filo2 = new Filo('test/resource/b.js');
+//            filo2.isAvailable().should.be.true();
+//        });
+//
+//    });
 
-            var filo2 = new Filo('test/resource/b.js');
-            filo2.isAvailable().should.be.true();
-        });
+//    describe('available with one file invalid', function() {
+//        it('should return true #isAvailable()', function() {
+//            var filo = new Filo('test/resource/??a.js,c.js');
+//
+//            filo.isAvailable().should.be.true();
+//        });
+//
+//        it('should return content of available file', function() {
+//            var filo = new Filo('test/resource/??b.js,c.js');
+//
+//            filo.output().toString().should.equal('console.log(2);')
+//        });
+//    });
 
-    });
-
-    describe('available with one file invalid', function() {
-        it('should return true #isAvailable()', function() {
-            var filo = new Filo('test/resource/??a.js,c.js');
-
-            filo.isAvailable().should.be.true();
-        });
-
-        it('should return content of available file', function() {
-            var filo = new Filo('test/resource/??b.js,c.js');
-
-            filo.output().toString().should.equal('console.log(2);')
-        });
-    });
-
-    describe('#combine()', function() {
+    describe('#concat()', function() {
         it('should concat content', function() {
             var filo = new Filo('test/resource/a.js');
             filo.output().toString().should.equal('console.log(1);');
 
-            filo.combine('test/resource/b.js');
+            filo.files.should.be.a('array');
+            filo.files.should.have.length(1);
+            filo.concat('test/resource/b.js');
+
+            filo.files.should.have.length(2);
 
             filo.output().toString().should.equal('console.log(1);console.log(2);')
 
