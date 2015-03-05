@@ -39,7 +39,7 @@ describe('filo module', function(){
         it('should return array of File instance', function(){
             var filo = new Filo("test/resource/??a.js,b.js"),
                 files = filo.files;
-            files.should.be.a('array');
+            files.should.be.an.Array;
             files.should.have.length(2);
 
             files[0].url.should.equal(path.join(__dirname, 'resource/a.js'))
@@ -60,10 +60,10 @@ describe('filo module', function(){
     describe('#isAvailable()', function() {
         it('should return available state', function() {
             var filo1 = new Filo('test/resource/c.js');
-            filo1.isAvailable().should.be.false();
+            filo1.isAvailable().should.be.false;
 
             var filo2 = new Filo('test/resource/b.js');
-            filo2.isAvailable().should.be.true();
+            filo2.isAvailable().should.be.true;
         });
 
     });
@@ -72,7 +72,7 @@ describe('filo module', function(){
         it('should return true with one file invalid', function() {
             var filo = new Filo('test/resource/??a.js,c.js');
 
-            filo.isAvailable().should.be.true();
+            filo.isAvailable().should.be.true;
         });
 
         it('should return content of available file', function() {
@@ -87,7 +87,7 @@ describe('filo module', function(){
             var filo = new Filo('test/resource/a.js');
             filo.output().toString().should.equal('console.log(1);');
 
-            filo.files.should.be.a('array');
+            filo.files.should.be.an.Array;
             filo.files.should.have.length(1);
             filo.combine('test/resource/b.js');
 
