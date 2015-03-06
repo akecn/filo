@@ -22,7 +22,7 @@ gulp.task('jshint', function () {
 
 // Copy all static images
 gulp.task('mocha', function () {
-    return gulp.src('./test/filo_test.js')
+    return gulp.src('./test/*.js')
         .pipe(mocha({
             globals: ['chai'],
             timeout: 6000,
