@@ -1,6 +1,6 @@
 {
   "name": "filo",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "virtual file object",
   "main": "lib/filo.js",
   "author": {
