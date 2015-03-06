@@ -27,7 +27,8 @@
   "dependencies": {
     "lodash": "^3.0.1",
     "minimatch": "^2.0.1",
-    "through2": "^0.6.3"
+    "through2": "^0.6.3",
+    "vinyl": "^0.4.6"
   },
   "devDependencies": {
     "chai": "^1.10.0",
