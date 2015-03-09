@@ -1,6 +1,6 @@
-## usage
+[![Build Status](https://api.travis-ci.org/akecn/filo.svg)](https://travis-ci.org/akecn/filo)
 
-_sorry for my poor english_
+## usage
 
 ```javascript
 new Filo(url, options);
@@ -29,6 +29,7 @@ filo.output(); // module `a` and `b` combine;
 _detail in `test/test.js`_
 
 ## Notice
+_sorry for my poor english_
 
 * `filo.files` is instance of `Vinyl`.
 * `filo.files` should have the same extension with `filo.ext`.
