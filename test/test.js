@@ -287,10 +287,10 @@ describe('Filo Class', function() {
             var filo = new Filo('resource/??a.js,b.js', {
                 cwd: cwd
             });
-            var fs = require('fs');
             var file1 = filo.files[0];
-
-            (Filo.fileStat(file1) instanceof fs.Stats).should.be.true;
+            var stat = Filo.fileStat(file1);
+            stat.isDirectory().should.be.false;
+            stat.isFile().should.be.true;
 
             var file = new Filo.File({
                 cwd: cwd,
